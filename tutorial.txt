@@ -3,6 +3,7 @@ rust extract audio
 requirment:
 1. harus ada whisper model di local
 2. terminal harus terisnall ffmpeg, cmake, llvm3
+3. download model whisper di https://huggingface.co/models?sort=trending&search=whisper-medium
 
 flow: 
 1. convert video ke wav
@@ -13,4 +14,5 @@ flow:
 
 script:
 1.convert video to wav untuk whisper: ffmpeg -i test.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 1 src/output.wav2. tempel subtitle ke video : ffmpeg -i test.mp4 -vf subtitles=transkrip.srt output+subtitle.mp4
-1.install ffmpeg : brew install ffmpeg2.install cmake llvm : brew install cmake llvm3. 
+2.install ffmpeg : brew install ffmpeg2.install cmake llvm : brew install cmake llvm3. 
+3.embed subtitle : ffmpeg -i cropped.mp4 -vf "ass=subtitle.ass" -c:a copy final.mp4
