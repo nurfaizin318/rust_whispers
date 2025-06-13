@@ -22,7 +22,7 @@
 
         let input_video = &args[1];
 
-        let model_path = format!("{}/src/models/ggml-medium.bin", env!("CARGO_MANIFEST_DIR"));
+        let model_path = format!("{}/src/models/ggml-small.bin", env!("CARGO_MANIFEST_DIR"));
         let output_wav = format!("{}/src/output.wav", env!("CARGO_MANIFEST_DIR"));
     
 
@@ -30,13 +30,15 @@
 
         extractor.convert_to_wav();
         extractor.transcribe();
-        match extractor.convert_srt_to_ass() {
-            Ok(_) => {},
-            Err(e) => {
-                eprintln!("Error converting SRT to ASS: {}", e);
-                std::process::exit(1);
-            }
-        }
+
+        
+        // match extractor.convert_srt_to_ass() {
+        //     Ok(_) => {},
+        //     Err(e) => {
+        //         eprintln!("Error converting SRT to ASS: {}", e);
+        //         std::process::exit(1);
+        //     }
+        // }
 
         // match extractor.convert_video_to_tiktok_format() {
         //     Ok(_) => {},
