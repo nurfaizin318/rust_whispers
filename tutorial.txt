@@ -15,4 +15,4 @@ flow:
 script:
 1.convert video to wav untuk whisper: ffmpeg -i test.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 1 src/output.wav2. tempel subtitle ke video : ffmpeg -i test.mp4 -vf subtitles=transkrip.srt output+subtitle.mp4
 2.install ffmpeg : brew install ffmpeg2.install cmake llvm : brew install cmake llvm3. 
-3.embed subtitle : ffmpeg -i video_ai.mp4 -vf "subtitles=transkrip.srt:force_style='OutlineColour=&H80000000,BorderStyle=4,BackColour=&H00000000,Outline=0,Shadow=0,MarginV=25,Fontname=Arial,Fontsize=15,Alignment=2'" video_destination.mp4
+3.embed subtitle : ffmpeg -i video_ai.mp4 -vf "subtitles=transkrip.srt:force_style='OutlineColour=&H80000000,BorderStyle=4,BackColour=&H00000000,Outline=0,Shadow=0,MarginV=25,Fontname=Arial,Fontsize=15,Alignment=2'" video_destination.mp4 
